@@ -12,10 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Fetch JSON data
+      - name: Create sample JSON data
         run: |
-          curl -H "User-Agent: Mozilla/5.0" -o data.json https://market.csgo.com/api/v2/prices/orders/USD.json
-          cat data.json
+          echo '{"success": true, "message": "Sample data"}' > data.json
 
       - name: Commit and push changes
         run: |

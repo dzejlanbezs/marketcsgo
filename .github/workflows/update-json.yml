@@ -15,6 +15,7 @@ jobs:
       - name: Fetch JSON data
         run: |
           curl -H "User-Agent: Mozilla/5.0" -o data.json https://market.csgo.com/api/v2/prices/orders/USD.json
+          cat data.json
 
       - name: Commit and push changes
         run: |

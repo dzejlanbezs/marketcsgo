@@ -1,25 +1,27 @@
-name: Update JSON from website
+name: Test JSON Update
 
 on:
-  schedule:
-    - cron: '*/1 * * * *' # Pokreće se svakih minut
+  push:
+    branches:
+      - main
 
 jobs:
-  update-json:
+  test-json-update:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Create sample JSON data
+      - name: Create test JSON data
         run: |
-          echo '{"success": true, "message": "Sample data"}' > data.json
+          echo '{"success": true, "message": "Test data"}' > data.json
+          cat data.json # Prikazuje sadržaj data.json u logovima
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add data.json
-          git commit -m "Update JSON data"
+          git commit -m "Create test JSON data"
           git push

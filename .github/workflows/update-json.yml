@@ -2,7 +2,7 @@ name: Update JSON from website
 
 on:
   schedule:
-    - cron: '0 * * * *' # Pokreće se svakih sat vremena (možeš prilagoditi po potrebi)
+    - cron: '*/1 * * * *' # Pokreće se svakih minut
 
 jobs:
   update-json:

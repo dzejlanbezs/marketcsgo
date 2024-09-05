@@ -13,7 +13,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Fetch JSON data
-        run: curl -o data.json https://market.csgo.com/api/v2/prices/orders/USD.json
+        run: |
+          curl https://market.csgo.com/api/v2/prices/orders/USD.json
+          curl -o data.json https://market.csgo.com/api/v2/prices/orders/USD.json
 
       - name: Commit and push changes
         run: |
